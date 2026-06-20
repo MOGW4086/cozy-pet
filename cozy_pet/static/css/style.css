@@ -70,7 +70,7 @@ body {
   animation: bounce 1.2s ease-in-out infinite;
 }
 
-.character-blink .eye {
+.character-blink .eye > * {
   animation: blink 3s ease-in-out infinite;
   transform-origin: center;
   transform-box: fill-box;

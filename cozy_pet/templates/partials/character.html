@@ -18,7 +18,7 @@
 
 {% elif pet.stage == 'baby' %}
 {# ===== 赤ちゃん形態 ===== #}
-<svg class="character-svg character-bounce character-blink"
+<svg class="character-svg character-bounce{% if pet.mood != 'sleepy' %} character-blink{% endif %}"
      viewBox="0 0 100 120"
      xmlns="http://www.w3.org/2000/svg"
      role="img"
@@ -95,7 +95,7 @@
 
 {% elif pet.stage == 'child' %}
 {# ===== 子ども形態 ===== #}
-<svg class="character-svg character-bounce character-blink"
+<svg class="character-svg character-bounce{% if pet.mood != 'sleepy' %} character-blink{% endif %}"
      viewBox="0 0 100 120"
      xmlns="http://www.w3.org/2000/svg"
      role="img"
@@ -176,9 +176,9 @@
   <ellipse cx="57" cy="107" rx="8" ry="3.5" fill="#f39c12"/>
 </svg>
 
-{% else %}
+{% elif pet.stage == 'adult' %}
 {# ===== 大人形態（adult）===== #}
-<svg class="character-svg character-bounce character-blink"
+<svg class="character-svg character-bounce{% if pet.mood != 'sleepy' %} character-blink{% endif %}"
      viewBox="0 0 100 120"
      xmlns="http://www.w3.org/2000/svg"
      role="img"
