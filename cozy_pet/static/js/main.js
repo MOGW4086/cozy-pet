@@ -3,4 +3,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('cozy pet loaded');
+
+  // data-width 属性からゲージ幅を設定（CSP 'unsafe-inline' 排除のため）
+  document.querySelectorAll('.status-bar[data-width]').forEach(el => {
+    el.style.width = el.dataset.width + '%';
+  });
 });

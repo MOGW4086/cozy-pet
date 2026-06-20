@@ -25,7 +25,7 @@
            aria-valuenow="{{ pet.hunger }}"
            aria-valuemin="0"
            aria-valuemax="100"
-           style="width: {{ pet.hunger }}%;">
+           data-width="{{ pet.hunger }}">
       </div>
     </div>
     <span class="status-value">{{ pet.hunger }}</span>
@@ -39,7 +39,7 @@
            aria-valuenow="{{ pet.happiness }}"
            aria-valuemin="0"
            aria-valuemax="100"
-           style="width: {{ pet.happiness }}%;">
+           data-width="{{ pet.happiness }}">
       </div>
     </div>
     <span class="status-value">{{ pet.happiness }}</span>
@@ -53,7 +53,7 @@
            aria-valuenow="{{ pet.sleepiness }}"
            aria-valuemin="0"
            aria-valuemax="100"
-           style="width: {{ pet.sleepiness }}%;">
+           data-width="{{ pet.sleepiness }}">
       </div>
     </div>
     <span class="status-value">{{ pet.sleepiness }}</span>
