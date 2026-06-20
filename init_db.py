@@ -50,7 +50,7 @@ def init_db():
     conn = sqlite3.connect(DB_PATH)
     try:
         cursor = conn.cursor()
-        cursor.executescript(CREATE_PETS_TABLE)
+        cursor.execute(CREATE_PETS_TABLE)
         conn.commit()
         print(f"DB を初期化しました: {DB_PATH}")
     except sqlite3.Error as e:

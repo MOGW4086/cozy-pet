@@ -12,7 +12,7 @@ def app():
         test_config={
             "TESTING": True,
             "DATABASE": ":memory:",
-            "SECRET_KEY": "test-secret-key",
+            "SECRET_KEY": "test-secret-key",  # テスト専用: 本番・ステージングでは使用しないこと
         }
     )
     yield app
