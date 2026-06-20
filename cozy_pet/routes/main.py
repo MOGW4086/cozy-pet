@@ -10,7 +10,6 @@ def get_or_create_viewer_id():
     """session から viewer_id を取得し、なければ新規生成する。"""
     if "viewer_id" not in session:
         session["viewer_id"] = str(uuid.uuid4())
-        session.permanent = True
     return session["viewer_id"]
 
 

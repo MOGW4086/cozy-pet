@@ -5,6 +5,7 @@ import os
 from datetime import timedelta
 
 from flask import Flask
+from flask import session as flask_session
 
 logger = logging.getLogger(__name__)
 
@@ -49,6 +50,11 @@ def create_app(test_config=None):
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         response.headers["Content-Security-Policy"] = "default-src 'self'"
         return response
+
+    @app.before_request
+    def make_session_permanent():
+        """全リクエストでセッションを永続化する。"""
+        flask_session.permanent = True
 
     # ルーティング登録
     from cozy_pet.routes import main as main_bp
