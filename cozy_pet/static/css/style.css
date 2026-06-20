@@ -1,0 +1,109 @@
+/* cozy pet - base styles */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", sans-serif;
+  background: #fdf6f0;
+  color: #5a3e2b;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ヘッダー */
+.pet-header {
+  text-align: center;
+}
+
+.pet-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #c97b4b;
+}
+
+.welcome-message {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #8a6a5a;
+}
+
+/* キャラクター表示エリア */
+.pet-character {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: #fff3ea;
+  border-radius: 16px;
+  border: 2px dashed #e8c9b0;
+}
+
+.character-placeholder {
+  color: #c4a98a;
+  font-size: 0.9rem;
+}
+
+/* ステータス */
+.pet-status {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.status-item {
+  display: grid;
+  grid-template-columns: 5em 1fr 3em;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.status-bar-wrapper {
+  background: #ecdcc8;
+  border-radius: 8px;
+  height: 16px;
+  overflow: hidden;
+}
+
+.status-bar {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.status-bar--hunger {
+  background: #f4a261;
+}
+
+.status-bar--happiness {
+  background: #e76f51;
+}
+
+.status-bar--sleepiness {
+  background: #a8dadc;
+}
+
+.status-value {
+  font-size: 0.85rem;
+  text-align: right;
+  color: #8a6a5a;
+}

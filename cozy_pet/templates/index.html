@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}{{ pet.name }} | cozy pet{% endblock %}
+
+{% block content %}
+<header class="pet-header">
+  <h1 class="pet-name">{{ pet.name }}</h1>
+  <p class="welcome-message">ようこそ！ペットが生まれました</p>
+</header>
+
+<!-- キャラクター表示エリア（後の Issue で SVG を入れる） -->
+<section class="pet-character" aria-label="キャラクター表示エリア">
+  <div class="character-placeholder">
+    <p>（ここにキャラクターが入ります）</p>
+  </div>
+</section>
+
+<!-- ステータス表示エリア（後の Issue で実装） -->
+<section class="pet-status" aria-label="ペットのステータス">
+  <div class="status-item">
+    <span class="status-label">おなか</span>
+    <div class="status-bar-wrapper">
+      <div class="status-bar status-bar--hunger"
+           role="progressbar"
+           aria-valuenow="{{ pet.hunger }}"
+           aria-valuemin="0"
+           aria-valuemax="100"
+           data-width="{{ pet.hunger }}">
+      </div>
+    </div>
+    <span class="status-value">{{ pet.hunger }}</span>
+  </div>
+
+  <div class="status-item">
+    <span class="status-label">しあわせ</span>
+    <div class="status-bar-wrapper">
+      <div class="status-bar status-bar--happiness"
+           role="progressbar"
+           aria-valuenow="{{ pet.happiness }}"
+           aria-valuemin="0"
+           aria-valuemax="100"
+           data-width="{{ pet.happiness }}">
+      </div>
+    </div>
+    <span class="status-value">{{ pet.happiness }}</span>
+  </div>
+
+  <div class="status-item">
+    <span class="status-label">ねむさ</span>
+    <div class="status-bar-wrapper">
+      <div class="status-bar status-bar--sleepiness"
+           role="progressbar"
+           aria-valuenow="{{ pet.sleepiness }}"
+           aria-valuemin="0"
+           aria-valuemax="100"
+           data-width="{{ pet.sleepiness }}">
+      </div>
+    </div>
+    <span class="status-value">{{ pet.sleepiness }}</span>
+  </div>
+</section>
+{% endblock %}
