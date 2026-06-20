@@ -47,9 +47,11 @@ CREATE TABLE IF NOT EXISTS pets (
 def init_db():
     """DB ファイルを作成し、テーブルを初期化する。"""
     os.makedirs(DB_DIR, exist_ok=True)
-    conn = sqlite3.connect(DB_PATH)
+    conn = None
     try:
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
+        cursor.execute("PRAGMA foreign_keys = ON")   # 外部キー制約を有効化
         cursor.execute(CREATE_PETS_TABLE)
         conn.commit()
         print(f"DB を初期化しました: {DB_PATH}")
@@ -57,7 +59,8 @@ def init_db():
         print(f"DB 初期化エラー: {e}")
         raise
     finally:
-        conn.close()
+        if conn is not None:
+            conn.close()
 
 
 if __name__ == "__main__":
