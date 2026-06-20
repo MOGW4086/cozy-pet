@@ -39,10 +39,7 @@ def create_app(test_config=None):
         app.config.from_mapping(test_config)
 
     # instance フォルダを作成
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
+    os.makedirs(app.instance_path, exist_ok=True)
 
     @app.after_request
     def set_security_headers(response):
