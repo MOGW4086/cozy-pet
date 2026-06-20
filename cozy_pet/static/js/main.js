@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // data-width 属性からゲージ幅を設定（CSP 'unsafe-inline' 排除のため）
   document.querySelectorAll('.status-bar[data-width]').forEach(el => {
-    el.style.width = el.dataset.width + '%';
+    const width = parseInt(el.dataset.width, 10);
+    el.style.width = (Number.isFinite(width) ? Math.max(0, Math.min(100, width)) : 0) + '%';
   });
 });
