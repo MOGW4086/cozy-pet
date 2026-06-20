@@ -29,3 +29,9 @@ def test_security_headers(client):
     assert response.headers.get("X-Content-Type-Options") == "nosniff"
     assert response.headers.get("X-Frame-Options") == "DENY"
     assert "Referrer-Policy" in response.headers
+
+
+def test_character_svg_rendered(client):
+    """SVGキャラクターが index ページに含まれること。"""
+    response = client.get("/")
+    assert b"<svg" in response.data

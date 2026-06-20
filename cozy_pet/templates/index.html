@@ -8,11 +8,8 @@
   <p class="welcome-message">ようこそ！ペットが生まれました</p>
 </header>
 
-<!-- キャラクター表示エリア（後の Issue で SVG を入れる） -->
 <section class="pet-character" aria-label="キャラクター表示エリア">
-  <div class="character-placeholder">
-    <p>（ここにキャラクターが入ります）</p>
-  </div>
+  {% include "partials/character.html" %}
 </section>
 
 <!-- ステータス表示エリア（後の Issue で実装） -->

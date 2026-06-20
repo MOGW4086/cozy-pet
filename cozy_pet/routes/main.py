@@ -22,6 +22,7 @@ def index():
     pet = {
         "name": "ペット",
         "stage": "egg",
+        "mood": "normal",
         "hunger": 80,
         "happiness": 80,
         "sleepiness": 20,

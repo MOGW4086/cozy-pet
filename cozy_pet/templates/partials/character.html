@@ -1,0 +1,222 @@
+{# ペンギン風 SVG キャラクター。pet.stage と pet.mood を参照して形態・表情を切り替える。 #}
+
+{% if pet.stage == 'egg' %}
+{# ===== 卵形態 ===== #}
+<svg class="character-svg character-bounce"
+     viewBox="0 0 100 120"
+     xmlns="http://www.w3.org/2000/svg"
+     role="img"
+     aria-label="卵のペット">
+  {# 卵本体（白い楕円） #}
+  <ellipse cx="50" cy="65" rx="30" ry="40"
+           fill="#fffef5" stroke="#e8c9b0" stroke-width="2"/>
+  {# 卵の淡いツヤ #}
+  <ellipse cx="40" cy="50" rx="8" ry="12"
+           fill="#ffffff" opacity="0.5"/>
+</svg>
+
+{% elif pet.stage == 'baby' %}
+{# ===== 赤ちゃん形態 ===== #}
+<svg class="character-svg character-bounce"
+     viewBox="0 0 100 120"
+     xmlns="http://www.w3.org/2000/svg"
+     role="img"
+     aria-label="赤ちゃんペンギンのペット">
+  {# 体（小さな丸） #}
+  <ellipse cx="50" cy="78" rx="22" ry="26"
+           fill="#2c3e50"/>
+  {# お腹（白） #}
+  <ellipse cx="50" cy="82" rx="13" ry="18"
+           fill="#ecf0f1"/>
+  {# 頭 #}
+  <circle cx="50" cy="50" r="20"
+          fill="#2c3e50"/>
+  {# 顔の白い部分 #}
+  <ellipse cx="50" cy="52" rx="13" ry="14"
+           fill="#ecf0f1"/>
+
+  {# 目 #}
+  {% if pet.mood == 'happy' %}
+    {# 弧（笑顔目） #}
+    <path d="M 41 47 Q 43 44 45 47" class="eye"
+          stroke="#2c3e50" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M 55 47 Q 57 44 59 47" class="eye"
+          stroke="#2c3e50" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  {% elif pet.mood == 'sleepy' %}
+    {# 半閉じ目（上半分が直線） #}
+    <path d="M 40 47 H 46" class="eye"
+          stroke="#2c3e50" stroke-width="1.5" stroke-linecap="round"/>
+    <ellipse cx="43" cy="48" rx="3" ry="1.5"
+             fill="#2c3e50" class="eye"/>
+    <path d="M 54 47 H 60" class="eye"
+          stroke="#2c3e50" stroke-width="1.5" stroke-linecap="round"/>
+    <ellipse cx="57" cy="48" rx="3" ry="1.5"
+             fill="#2c3e50" class="eye"/>
+  {% else %}
+    {# normal / hungry — 普通の目 #}
+    <circle cx="43" cy="48" r="3" fill="#2c3e50" class="eye"/>
+    <circle cx="57" cy="48" r="3" fill="#2c3e50" class="eye"/>
+    <circle cx="44" cy="47" r="1" fill="#ffffff"/>
+    <circle cx="58" cy="47" r="1" fill="#ffffff"/>
+  {% endif %}
+
+  {# くちばし #}
+  {% if pet.mood == 'happy' %}
+    <path d="M 46 57 Q 50 61 54 57"
+          stroke="#f39c12" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  {% elif pet.mood == 'hungry' %}
+    <path d="M 47 56 L 50 60 L 53 56"
+          fill="#f39c12" stroke="#f39c12" stroke-width="1" stroke-linejoin="round"/>
+  {% else %}
+    <line x1="47" y1="57" x2="53" y2="57"
+          stroke="#f39c12" stroke-width="1.5" stroke-linecap="round"/>
+  {% endif %}
+
+  {# 翼（小さな三角） #}
+  <polygon points="28,70 22,82 30,84" fill="#1a252f"/>
+  <polygon points="72,70 78,82 70,84" fill="#1a252f"/>
+  {# 足 #}
+  <ellipse cx="44" cy="103" rx="6" ry="3" fill="#f39c12"/>
+  <ellipse cx="56" cy="103" rx="6" ry="3" fill="#f39c12"/>
+</svg>
+
+{% elif pet.stage == 'child' %}
+{# ===== 子ども形態 ===== #}
+<svg class="character-svg character-bounce"
+     viewBox="0 0 100 120"
+     xmlns="http://www.w3.org/2000/svg"
+     role="img"
+     aria-label="子どもペンギンのペット">
+  {# 体 #}
+  <ellipse cx="50" cy="80" rx="26" ry="28"
+           fill="#2c3e50"/>
+  {# お腹 #}
+  <ellipse cx="50" cy="84" rx="16" ry="20"
+           fill="#ecf0f1"/>
+  {# 頭 #}
+  <circle cx="50" cy="48" r="24"
+          fill="#2c3e50"/>
+  {# 顔の白い部分 #}
+  <ellipse cx="50" cy="51" rx="15" ry="16"
+           fill="#ecf0f1"/>
+
+  {# 目（くっきり） #}
+  {% if pet.mood == 'happy' %}
+    <path d="M 40 45 Q 43 41 46 45" class="eye"
+          stroke="#2c3e50" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M 54 45 Q 57 41 60 45" class="eye"
+          stroke="#2c3e50" stroke-width="2" fill="none" stroke-linecap="round"/>
+  {% elif pet.mood == 'sleepy' %}
+    <path d="M 39 45 H 47" class="eye"
+          stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="43" cy="47" rx="4" ry="2"
+             fill="#2c3e50" class="eye"/>
+    <path d="M 53 45 H 61" class="eye"
+          stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="57" cy="47" rx="4" ry="2"
+             fill="#2c3e50" class="eye"/>
+  {% elif pet.mood == 'hungry' %}
+    <ellipse cx="43" cy="47" rx="4" ry="3" fill="#2c3e50" class="eye"/>
+    <ellipse cx="57" cy="47" rx="4" ry="3" fill="#2c3e50" class="eye"/>
+    <circle cx="44" cy="46" r="1.2" fill="#ffffff"/>
+    <circle cx="58" cy="46" r="1.2" fill="#ffffff"/>
+  {% else %}
+    <circle cx="43" cy="47" r="4" fill="#2c3e50" class="eye"/>
+    <circle cx="57" cy="47" r="4" fill="#2c3e50" class="eye"/>
+    <circle cx="44.5" cy="46" r="1.5" fill="#ffffff"/>
+    <circle cx="58.5" cy="46" r="1.5" fill="#ffffff"/>
+  {% endif %}
+
+  {# くちばし #}
+  {% if pet.mood == 'happy' %}
+    <path d="M 45 58 Q 50 63 55 58"
+          stroke="#f39c12" stroke-width="2" fill="none" stroke-linecap="round"/>
+  {% elif pet.mood == 'hungry' %}
+    <path d="M 46 57 L 50 62 L 54 57"
+          fill="#f39c12" stroke="#f39c12" stroke-width="1.5" stroke-linejoin="round"/>
+  {% else %}
+    <line x1="45" y1="58" x2="55" y2="58"
+          stroke="#f39c12" stroke-width="2" stroke-linecap="round"/>
+  {% endif %}
+
+  {# 翼（少し長め） #}
+  <polygon points="24,72 16,88 28,90" fill="#1a252f"/>
+  <polygon points="76,72 84,88 72,90" fill="#1a252f"/>
+  {# 足 #}
+  <ellipse cx="43" cy="107" rx="8" ry="3.5" fill="#f39c12"/>
+  <ellipse cx="57" cy="107" rx="8" ry="3.5" fill="#f39c12"/>
+</svg>
+
+{% else %}
+{# ===== 大人形態（adult）===== #}
+<svg class="character-svg character-bounce"
+     viewBox="0 0 100 120"
+     xmlns="http://www.w3.org/2000/svg"
+     role="img"
+     aria-label="大人ペンギンのペット">
+  {# 体（大きく、コントラストあり） #}
+  <ellipse cx="50" cy="82" rx="30" ry="30"
+           fill="#1a252f"/>
+  {# お腹（白、広め） #}
+  <ellipse cx="50" cy="86" rx="19" ry="22"
+           fill="#ecf0f1"/>
+  {# お腹の模様 #}
+  <ellipse cx="50" cy="90" rx="14" ry="16"
+           fill="#dfe6e9"/>
+  {# 頭 #}
+  <circle cx="50" cy="44" r="26"
+          fill="#1a252f"/>
+  {# 頭の白い部分 #}
+  <ellipse cx="50" cy="47" rx="17" ry="18"
+           fill="#ecf0f1"/>
+  {# 黄色のアクセント（頭） #}
+  <ellipse cx="50" cy="30" rx="10" ry="6"
+           fill="#f1c40f" opacity="0.7"/>
+
+  {# 目（大きくはっきり） #}
+  {% if pet.mood == 'happy' %}
+    <path d="M 38 43 Q 42 38 46 43" class="eye"
+          stroke="#1a252f" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 54 43 Q 58 38 62 43" class="eye"
+          stroke="#1a252f" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  {% elif pet.mood == 'sleepy' %}
+    <path d="M 37 43 H 47" class="eye"
+          stroke="#1a252f" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="42" cy="45" rx="5" ry="2.5"
+             fill="#1a252f" class="eye"/>
+    <path d="M 53 43 H 63" class="eye"
+          stroke="#1a252f" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="58" cy="45" rx="5" ry="2.5"
+             fill="#1a252f" class="eye"/>
+  {% elif pet.mood == 'hungry' %}
+    <ellipse cx="42" cy="45" rx="5" ry="3.5" fill="#1a252f" class="eye"/>
+    <ellipse cx="58" cy="45" rx="5" ry="3.5" fill="#1a252f" class="eye"/>
+    <circle cx="43.5" cy="44" r="1.5" fill="#ffffff"/>
+    <circle cx="59.5" cy="44" r="1.5" fill="#ffffff"/>
+  {% else %}
+    <circle cx="42" cy="45" r="5" fill="#1a252f" class="eye"/>
+    <circle cx="58" cy="45" r="5" fill="#1a252f" class="eye"/>
+    <circle cx="44" cy="43.5" r="2" fill="#ffffff"/>
+    <circle cx="60" cy="43.5" r="2" fill="#ffffff"/>
+  {% endif %}
+
+  {# くちばし（立派） #}
+  {% if pet.mood == 'happy' %}
+    <path d="M 44 58 Q 50 65 56 58"
+          stroke="#f39c12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  {% elif pet.mood == 'hungry' %}
+    <path d="M 44 57 L 50 64 L 56 57"
+          fill="#f39c12" stroke="#f39c12" stroke-width="2" stroke-linejoin="round"/>
+  {% else %}
+    <line x1="44" y1="58" x2="56" y2="58"
+          stroke="#f39c12" stroke-width="2.5" stroke-linecap="round"/>
+  {% endif %}
+
+  {# 翼（立派） #}
+  <polygon points="20,72 10,92 26,95" fill="#0f1c26"/>
+  <polygon points="80,72 90,92 74,95" fill="#0f1c26"/>
+  {# 足 #}
+  <ellipse cx="42" cy="111" rx="10" ry="4" fill="#f39c12"/>
+  <ellipse cx="58" cy="111" rx="10" ry="4" fill="#f39c12"/>
+</svg>
+{% endif %}
