@@ -1,6 +1,7 @@
 {# ペンギン風 SVG キャラクター。pet.stage と pet.mood を参照して形態・表情を切り替える。 #}
 
 {% if pet.stage == 'egg' %}
+{# 卵は表情なし（仕様：孵化前のため mood を持たない） #}
 {# ===== 卵形態 ===== #}
 <svg class="character-svg character-bounce"
      viewBox="0 0 100 120"
@@ -17,7 +18,7 @@
 
 {% elif pet.stage == 'baby' %}
 {# ===== 赤ちゃん形態 ===== #}
-<svg class="character-svg character-bounce"
+<svg class="character-svg character-bounce character-blink"
      viewBox="0 0 100 120"
      xmlns="http://www.w3.org/2000/svg"
      role="img"
@@ -45,11 +46,11 @@
   {% elif pet.mood == 'sleepy' %}
     {# 半閉じ目（上半分が直線） #}
     <path d="M 40 47 H 46" class="eye"
-          stroke="#2c3e50" stroke-width="1.5" stroke-linecap="round"/>
+          stroke="#2c3e50" stroke-width="1.5" stroke-linecap="round" fill="none"/>
     <ellipse cx="43" cy="48" rx="3" ry="1.5"
              fill="#2c3e50" class="eye"/>
     <path d="M 54 47 H 60" class="eye"
-          stroke="#2c3e50" stroke-width="1.5" stroke-linecap="round"/>
+          stroke="#2c3e50" stroke-width="1.5" stroke-linecap="round" fill="none"/>
     <ellipse cx="57" cy="48" rx="3" ry="1.5"
              fill="#2c3e50" class="eye"/>
   {% else %}
@@ -82,7 +83,7 @@
 
 {% elif pet.stage == 'child' %}
 {# ===== 子ども形態 ===== #}
-<svg class="character-svg character-bounce"
+<svg class="character-svg character-bounce character-blink"
      viewBox="0 0 100 120"
      xmlns="http://www.w3.org/2000/svg"
      role="img"
@@ -108,11 +109,11 @@
           stroke="#2c3e50" stroke-width="2" fill="none" stroke-linecap="round"/>
   {% elif pet.mood == 'sleepy' %}
     <path d="M 39 45 H 47" class="eye"
-          stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+          stroke="#2c3e50" stroke-width="2" stroke-linecap="round" fill="none"/>
     <ellipse cx="43" cy="47" rx="4" ry="2"
              fill="#2c3e50" class="eye"/>
     <path d="M 53 45 H 61" class="eye"
-          stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+          stroke="#2c3e50" stroke-width="2" stroke-linecap="round" fill="none"/>
     <ellipse cx="57" cy="47" rx="4" ry="2"
              fill="#2c3e50" class="eye"/>
   {% elif pet.mood == 'hungry' %}
@@ -149,7 +150,7 @@
 
 {% else %}
 {# ===== 大人形態（adult）===== #}
-<svg class="character-svg character-bounce"
+<svg class="character-svg character-bounce character-blink"
      viewBox="0 0 100 120"
      xmlns="http://www.w3.org/2000/svg"
      role="img"
@@ -181,11 +182,11 @@
           stroke="#1a252f" stroke-width="2.5" fill="none" stroke-linecap="round"/>
   {% elif pet.mood == 'sleepy' %}
     <path d="M 37 43 H 47" class="eye"
-          stroke="#1a252f" stroke-width="2.5" stroke-linecap="round"/>
+          stroke="#1a252f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
     <ellipse cx="42" cy="45" rx="5" ry="2.5"
              fill="#1a252f" class="eye"/>
     <path d="M 53 43 H 63" class="eye"
-          stroke="#1a252f" stroke-width="2.5" stroke-linecap="round"/>
+          stroke="#1a252f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
     <ellipse cx="58" cy="45" rx="5" ry="2.5"
              fill="#1a252f" class="eye"/>
   {% elif pet.mood == 'hungry' %}
