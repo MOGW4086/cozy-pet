@@ -16,6 +16,7 @@ def get_or_create_viewer_id():
 
 @bp.route("/")
 def index():
+    # viewer_id は後続 Issue（#3）で DB からペット情報を取得する際に使用する
     viewer_id = get_or_create_viewer_id()
 
     # 仮のペット情報（後の Issue で DB から取得する）
